@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2840604735672750264}
   - component: {fileID: 8257581716450628916}
+  - component: {fileID: 8391402032584984294}
   m_Layer: 6
   m_Name: TreeGroup
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -48,8 +49,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 3.22, z: 5}
+  m_Size: {x: 5, y: 5.22, z: 5}
   m_Center: {x: 0.18, y: 1.13, z: 0}
+--- !u!114 &8391402032584984294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123817256261439436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f3660d17900134d846a51d75be0db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wood: 1
+  food: 0
+  stone: 0
+  gatherSpeed: 4
 --- !u!1001 &218441954788516443
 PrefabInstance:
   m_ObjectHideFlags: 0

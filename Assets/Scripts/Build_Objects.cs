@@ -4,6 +4,7 @@ public class Build_Objects : MonoBehaviour
 {
     public GameObject barracks_obj;
     public GameObject house_obj;
+    public GameObject button_barracks;
 
     [SerializeField] private ResourceInv resourceInv;
 
@@ -14,6 +15,7 @@ public class Build_Objects : MonoBehaviour
             Instantiate(barracks_obj);
             resourceInv.wood -= 10;
             resourceInv.stone -= 20;
+            Destroy(button_barracks);
         }
     }
 

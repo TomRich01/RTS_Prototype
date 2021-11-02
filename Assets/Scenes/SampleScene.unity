@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 41650969}
   - component: {fileID: 41650971}
   - component: {fileID: 41650970}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,6 +347,7 @@ MonoBehaviour:
   food: 20
   stone: 30
   maxUnit: 3
+  amountUnit: 0
 --- !u!4 &61696686
 Transform:
   m_ObjectHideFlags: 0
@@ -762,6 +763,106 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3089250377366708363, guid: 1fc75f347d76ae144901f8f83beeffd3, type: 3}
   m_PrefabInstance: {fileID: 585465673}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &666826670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666826674}
+  - component: {fileID: 666826673}
+  - component: {fileID: 666826672}
+  - component: {fileID: 666826671}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &666826671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666826670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1bfa85743086448b6caca4b8efa023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyObj: {fileID: 4855844833492999007, guid: ac0fc7ae8eedc3041b3f6c9f312208f3, type: 3}
+  timer: 100
+  resetTimer: 200
+  timeDelay: 50
+  timeRepeat: 50
+  waves: 0
+--- !u!23 &666826672
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666826670}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &666826673
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666826670}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &666826674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666826670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -30.64, y: 0.489, z: 52.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &667478553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1065,6 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319ea65bb9a896a4aa01f2a779c07141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wu_Selected: {fileID: 0}
   u_Selected: {fileID: 0}
   marker: {fileID: 780102009485095946, guid: 81f10eb9324abb545871384acc22a181, type: 3}
 --- !u!4 &991875484 stripped
@@ -1505,8 +1607,9 @@ GameObject:
   - component: {fileID: 1498193586}
   - component: {fileID: 1498193585}
   - component: {fileID: 1498193584}
+  - component: {fileID: 1498193587}
   m_Layer: 0
-  m_Name: Button (3)
+  m_Name: Button_Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1575,7 +1678,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1498193585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1498193587}
+        m_TargetAssemblyTypeName: FindBarrack, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1498193585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1614,6 +1729,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498193582}
   m_CullTransparentMesh: 1
+--- !u!114 &1498193587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498193582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2bbbe395c96cf40910f3dce201e2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1663103092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5543129415742114012, guid: 8341ef626eb9b4344a0fbfcd2ecacab1, type: 3}
@@ -1631,8 +1758,8 @@ GameObject:
   - component: {fileID: 1671926489}
   - component: {fileID: 1671926488}
   - component: {fileID: 1671926487}
-  m_Layer: 0
-  m_Name: Button (2)
+  m_Layer: 6
+  m_Name: Button_worker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1701,7 +1828,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1671926488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2081540763}
+        m_TargetAssemblyTypeName: Base, Assembly-CSharp
+        m_MethodName: SpawnWorker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1671926488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,6 +2339,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830190081}
   m_CullTransparentMesh: 1
+--- !u!1 &1909882108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909882109}
+  m_Layer: 6
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909882109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909882108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.54, y: 0, z: -5.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1663103092}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936631137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barracks_obj: {fileID: 2890805567774503968, guid: 505300e8b1487f1429cd98d4a017ed67, type: 3}
   house_obj: {fileID: 6065557989227362265, guid: 136e5a776d459844aab87037c2478b33, type: 3}
+  button_barracks: {fileID: 2083487630}
   resourceInv: {fileID: 61696685}
 --- !u!114 &2057728442
 MonoBehaviour:
@@ -2706,6 +2876,26 @@ MonoBehaviour:
   stoneText: {fileID: 92237599}
   foodText: {fileID: 1936631139}
   unitText: {fileID: 574018681}
+--- !u!1 &2081540762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4381558896360506613, guid: 8341ef626eb9b4344a0fbfcd2ecacab1, type: 3}
+  m_PrefabInstance: {fileID: 1118760384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081540763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081540762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd03a80c9629bf4a85c2345b75c8c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonObj: {fileID: 1671926485}
+  worker: {fileID: 1833697559501374830, guid: 2aeae4cdf1f6ef041b744a1b43868e19, type: 3}
+  spawnPoint: {fileID: 1909882108}
 --- !u!1 &2083487630
 GameObject:
   m_ObjectHideFlags: 0

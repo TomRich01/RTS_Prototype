@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1340227513064748247}
   - component: {fileID: 252322081998478038}
+  - component: {fileID: -4393208572158589289}
   m_Layer: 6
   m_Name: BushGroup
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -47,6 +48,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 1.78, z: 1.95}
   m_Center: {x: 0, y: 0.36, z: 0}
+--- !u!114 &-4393208572158589289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340227513064748240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f3660d17900134d846a51d75be0db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wood: 0
+  food: 1
+  stone: 0
+  gatherSpeed: 0
 --- !u!1001 &1340227514002224329
 PrefabInstance:
   m_ObjectHideFlags: 0

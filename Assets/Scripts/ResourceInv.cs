@@ -8,15 +8,5 @@ public class ResourceInv : MonoBehaviour
     public int stone = 10;
     public int maxUnit = 3;
     public int amountUnit = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+  
 }

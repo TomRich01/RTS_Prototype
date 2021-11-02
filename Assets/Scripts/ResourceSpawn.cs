@@ -1,27 +1,13 @@
 using UnityEngine;
 
-public class ResourceSpawn : ResourceInv
+public class ResourceSpawn : MonoBehaviour
 {
-    [SerializeField] private bool woodR, foodR, stoneR;
+   
+    [SerializeField] public int wood, food, stone;
 
-    [SerializeField] private float gatherSpeed = 2.5f;
+    [SerializeField] public float gatherSpeed = 3.0f;
 
 
-    private void Update()
-    {
-        if (woodR)
-        {
-
-        }
-        if (foodR)
-        {
-
-        }
-        if (stoneR)
-        {
-
-        }
-    }
 
 
 }
