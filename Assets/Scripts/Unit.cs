@@ -7,11 +7,9 @@ public class Unit : MonoBehaviour
 {
 
 
-
+    private ResourceInv inv;
     [SerializeField] int health = 20;
     NavMeshAgent agent;
-    bool isAtPOS = false;
-    Vector3 unitPOS;
     public UnitType unitType;
     public enum UnitType
     {
@@ -21,11 +19,12 @@ public class Unit : MonoBehaviour
 
    
    [SerializeField] private GameObject[] guardUnits;
+    [SerializeField] private GameObject[] enemyUnits;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        isAtPOS = false;
+        inv = GameObject.Find("ResourceHolder").GetComponent<ResourceInv>();
     }
 
     private void Update()
@@ -34,7 +33,7 @@ public class Unit : MonoBehaviour
         switch (unitType)
         {
             case UnitType.friendly:
-                GoToUnit();
+                GoToEnemy();
                 break;
             case UnitType.enemy:
                 GoToGuard();
@@ -43,22 +42,7 @@ public class Unit : MonoBehaviour
                 break;
         }
     }
-    private void GoToUnit ()
-    {
-        agent.SetDestination(unitPOS);
-        agent.isStopped = false;
-
-        if (agent.remainingDistance < 0.3)
-        {
-            agent.isStopped = true;
-            isAtPOS = true;
-
-        }
-    }
-    public Vector3 GetUnitPosition(Vector3 taskPosition)
-    {
-        return unitPOS = taskPosition;
-    }
+  
     private void GoToGuard()
     {
 
@@ -72,6 +56,25 @@ public class Unit : MonoBehaviour
         {
             agent.isStopped = true;
            
+
+        }
+
+
+    }
+
+    private void GoToEnemy()
+    {
+
+        enemyUnits = GameObject.FindGameObjectsWithTag("Enemy");
+        int randomNum = Random.Range(0, enemyUnits.Length);
+        Vector3 pos = enemyUnits[randomNum].transform.position;
+        agent.SetDestination(pos);
+        agent.isStopped = false;
+
+        if (agent.remainingDistance < 0.4)
+        {
+            agent.isStopped = true;
+
 
         }
 
@@ -95,6 +98,7 @@ public class Unit : MonoBehaviour
             print(health);
             if (health < 1)
             {
+                inv.amountUnit--;
                 Destroy(gameObject);
             }
         }

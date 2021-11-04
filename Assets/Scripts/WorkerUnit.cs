@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class WorkerUnit : MonoBehaviour
 {
+
     
     NavMeshAgent agent;
     Vector3 resourcePOS;
@@ -14,10 +15,7 @@ public class WorkerUnit : MonoBehaviour
     private ResourceInv inv;
 
     public float timer = 5;
-    private void Awake()
-    {
 
-    }
 
     void Start()
     {

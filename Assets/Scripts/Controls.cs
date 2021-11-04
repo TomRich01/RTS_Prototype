@@ -5,15 +5,8 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
     public WorkerUnit wu_Selected = null;
-    public Unit u_Selected = null;
-
-    public GameObject marker;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] GameObject selectedMarker;
+    
     // Update is called once per frame
     void Update()
     {
@@ -27,8 +20,24 @@ public class Controls : MonoBehaviour
         {
             TaskUnit();
         }
-       
-        
+
+        HandleSelectedMarker();
+    }
+
+    private void SelectUnit()
+    {
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            //the collider could be children of the unit, so we make sure to check in the parent
+            var wunit = hit.collider.GetComponentInParent<WorkerUnit>();
+            wu_Selected = wunit;
+           
+
+
+        }
+
     }
 
     void TaskUnit()
@@ -43,48 +52,26 @@ public class Controls : MonoBehaviour
                 wu_Selected.GetTaskPosition(area);
                 wu_Selected.tagType = hit.collider.tag;
                 wu_Selected.GetResourceObject(hit.collider.GetComponent<ResourceSpawn>());
+               
             }
 
-            if (hit.collider.tag == "Enemy")
-            {
-                Vector3 area = hit.collider.gameObject.transform.position;
-                u_Selected.GetUnitPosition(area);
-                
-            }
-
-
-            if (Input.GetMouseButton(0))
-            {
-                if (hit.transform.gameObject.layer == 7)
-                {
-                    wu_Selected = null;
-                    u_Selected = null;
-                }
-            }
-
-            
         }
     }
 
-    private void SelectUnit()
+    void HandleSelectedMarker()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (wu_Selected == null && selectedMarker.activeInHierarchy)
         {
-            //the collider could be children of the unit, so we make sure to check in the parent
-            var wunit = hit.collider.GetComponentInParent<WorkerUnit>();
-            var unit = hit.collider.GetComponent<Unit>();
-            wu_Selected = wunit;
-
-            if (unit.CompareTag("Guard"))
-            {
-                u_Selected = unit;
-            }
-            
-
-
+            selectedMarker.SetActive(false);
+            selectedMarker.transform.SetParent(null);
         }
+        else if (wu_Selected != null && selectedMarker.transform.parent != wu_Selected.transform)
+        {
+            selectedMarker.SetActive(true);
+            selectedMarker.transform.SetParent(wu_Selected.transform, false);
+            selectedMarker.transform.localPosition = new Vector3(0, 2.5f, 0);
+        }
+
     }
 
    
